@@ -1,5 +1,5 @@
 # Simple Blockchain  
-**A Minimalistic Blockchain Implementation in Python for Educational Purposes**
+**A Minimalistic Blockchain Implementation for Educational Purposes**
 
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
