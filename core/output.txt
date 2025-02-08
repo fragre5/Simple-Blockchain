@@ -1,0 +1,28 @@
+Data:		Genesis block
+Timestamp:	1739053485.757948
+Nonce:		168770
+Hash:		00000a6d9d7d6b8eafbbae58d259afed5f569d6441a3e0b282cc71d93e84dd68
+PrevHash:	0
+--------------------------------------------------
+
+Data:		First transaction: Misha -> Sasha 0.0120001 BTC
+Timestamp:	1739053486.3350616
+Nonce:		378801
+Hash:		0000046b2fcf74ef430c5b7637fa77d0d8990984553e4d0a5e367fa1e7d24048
+PrevHash:	00000a6d9d7d6b8eafbbae58d259afed5f569d6441a3e0b282cc71d93e84dd68
+--------------------------------------------------
+
+Data:		Second transaction: Juli -> Karl 0.0000004 BTC
+Timestamp:	1739053487.4890118
+Nonce:		2223226
+Hash:		00000a5e2940c346fe8adb4fb90407442bf6c5a5d257155b3dc2d5b70be761d0
+PrevHash:	0000046b2fcf74ef430c5b7637fa77d0d8990984553e4d0a5e367fa1e7d24048
+--------------------------------------------------
+
+Data:		Third transaction: Alice -> Misha 0.5550000 BTC
+Timestamp:	1739053493.7794573
+Nonce:		379431
+Hash:		0000062f904438dfb8b861fd442949d526465c48b16a580b242595f1c9f40d3c
+PrevHash:	00000a5e2940c346fe8adb4fb90407442bf6c5a5d257155b3dc2d5b70be761d0
+--------------------------------------------------
+

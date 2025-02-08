@@ -1,0 +1,73 @@
+from core.entity.Block import Block
+
+import time
+
+class Blockchain:
+    def __init__(self, difficulty=4):
+        self.chain = []
+        self.difficulty = difficulty
+        self.create_genesis_block()
+
+    def create_genesis_block(self):
+        genesis = Block(
+            time.time(),
+            "Genesis block",
+            Block.GENESIS_PREV_HASH
+        )
+        genesis.mine(self.difficulty)
+        self.chain.append(genesis)
+
+    def get_last_block(self):
+        return self.chain[-1]
+
+    def add_block(self, data):
+        previous_hash = self.get_last_block().hash
+        new_block = Block(time.time(), data, previous_hash)
+        new_block.mine(self.difficulty)
+
+        if new_block.hash[:self.difficulty] != Block.TARGET_PREFIX * self.difficulty:
+            raise ValueError("Invalid block hash difficulty")
+
+        self.chain.append(new_block)
+
+    def add_blocks(self, data_list: list):
+        for data in data_list:
+            self.add_block(data)
+
+    def is_chain_valid(self):
+        for i in range(len(self.chain)):
+            current_block = self.chain[i]
+
+            target = Block.TARGET_PREFIX * self.difficulty
+            if current_block.hash[:self.difficulty] != target:
+                return False
+
+            if i > 0:
+                previous_block = self.chain[i - 1]
+                if current_block.previous_hash != previous_block.hash:
+                    return False
+
+        return True
+
+    def save_to_file(self, filename="output.txt"):
+        with open(filename, 'w', encoding='utf-8') as f:
+            for block in self.chain:
+                f.write(
+                    f"Data:\t\t{block.data}\n"
+                    f"Timestamp:\t{block.timestamp}\n"
+                    f"Nonce:\t\t{block.nonce}\n"
+                    f"Hash:\t\t{block.hash}\n"
+                    f"PrevHash:\t{block.previous_hash}\n"
+                    f"{'-' * 50}\n\n"
+                )
+
+    def print_chain(self):
+        for block in self.chain:
+            print(
+                f"Data:\t\t{block.data}\n"
+                f"Timestamp:\t{block.timestamp}\n"
+                f"Nonce:\t\t{block.nonce}\n"
+                f"Hash:\t\t{block.hash}\n"
+                f"PrevHash:\t{block.previous_hash}\n"
+                f"{'-'*50}\n"
+            )
