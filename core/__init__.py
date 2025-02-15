@@ -2,7 +2,7 @@ from core.entity.Blockchain import Blockchain
 
 CHAIN_DIFFICULTY = 5
 
-def test_blockchain_integrity(chain: Blockchain):
+def test_blockchain_integrity(chain: Blockchain) -> None:
     print("Initial chain valid:", blockchain.is_chain_valid())
 
     print("\nTampering data . . .")
