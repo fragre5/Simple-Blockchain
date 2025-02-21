@@ -1,7 +1,7 @@
 import pytest
 import time
-from core.entity.Block import Block
-from core.entity.Blockchain import Blockchain
+from core.entity.block import Block
+from core.entity.blockchain import Blockchain
 
 @pytest.fixture
 def genesis_block():

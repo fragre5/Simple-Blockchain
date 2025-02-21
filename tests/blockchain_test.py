@@ -1,4 +1,4 @@
-from core.entity.Blockchain import Blockchain
+from core.entity.blockchain import Blockchain
 
 def test_blockchain_initialization(sample_blockchain):
     chain = sample_blockchain.chain

@@ -1,4 +1,4 @@
-from core.entity.Blockchain import Blockchain
+from core.entity.blockchain import Blockchain
 
 CHAIN_DIFFICULTY = 5
 

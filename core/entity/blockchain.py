@@ -1,5 +1,5 @@
 from typing import List, Optional
-from core.entity.Block import Block
+from core.entity.block import Block
 
 import time
 
