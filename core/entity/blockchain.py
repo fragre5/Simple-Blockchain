@@ -1,7 +1,7 @@
-from typing import List, Optional
-from core.entity.block import Block
-
 import time
+from typing import List
+
+from core.entity.block import Block
 
 class Blockchain:
     def __init__(self, difficulty: int = 4) -> None:
