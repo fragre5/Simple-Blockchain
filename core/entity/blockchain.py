@@ -59,7 +59,7 @@ class Blockchain:
                     f"Nonce:\t\t{block.nonce}\n"
                     f"Hash:\t\t{block.hash}\n"
                     f"PrevHash:\t{block.previous_hash}\n"
-                    f"{'-' * 50}\n\n"
+                    "\n"
                 )
 
     def print_chain(self) -> None:
