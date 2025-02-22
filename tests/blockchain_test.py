@@ -20,8 +20,8 @@ def test_block_linking(sample_blockchain):
     block1 = sample_blockchain.chain[1]
     block2 = sample_blockchain.chain[2]
 
-    assert block1.previous_hash == sample_blockchain.chain[0].hash
-    assert block2.previous_hash == block1.hash
+    assert block1.previous_hash == sample_blockchain.chain[0].get_hash
+    assert block2.previous_hash == block1.get_hash
 
 
 def test_chain_validation(sample_blockchain):
@@ -42,4 +42,4 @@ def test_empty_chain_validation(sample_blockchain):
 def test_different_difficulty_levels():
     blockchain = Blockchain(difficulty=2)
     blockchain.add_block("Test")
-    assert blockchain.chain[1].hash.startswith("00")
+    assert blockchain.chain[1].get_hash.startswith("00")

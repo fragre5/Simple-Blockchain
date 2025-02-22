@@ -12,11 +12,11 @@ class Block:
         self.nonce = 0
 
     @property
-    def hash(self) -> str:
+    def get_hash(self) -> str:
         head = f"{self.timestamp}{self.data}{self.previous_hash}{self.nonce}"
         return hashlib.sha256(head.encode(self.ENCODING)).hexdigest()
 
     def mine(self, difficulty: int) -> None:
         target = self.TARGET_PREFIX * difficulty
-        while self.hash[:difficulty] != target:
+        while self.get_hash[:difficulty] != target:
             self.nonce += 1

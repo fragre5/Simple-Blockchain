@@ -22,11 +22,11 @@ class Blockchain:
         return self.chain[-1]
 
     def add_block(self, data: str) -> None:
-        previous_hash = self.get_last_block().hash
+        previous_hash = self.get_last_block().get_hash
         new_block = Block(time.time(), data, previous_hash)
         new_block.mine(self.difficulty)
 
-        if new_block.hash[:self.difficulty] != Block.TARGET_PREFIX * self.difficulty:
+        if new_block.get_hash[:self.difficulty] != Block.TARGET_PREFIX * self.difficulty:
             raise ValueError("Invalid block hash difficulty")
 
         self.chain.append(new_block)
@@ -40,12 +40,12 @@ class Blockchain:
             current_block = self.chain[i]
 
             target = Block.TARGET_PREFIX * self.difficulty
-            if current_block.hash[:self.difficulty] != target:
+            if current_block.get_hash[:self.difficulty] != target:
                 return False
 
             if i > 0:
                 previous_block = self.chain[i - 1]
-                if current_block.previous_hash != previous_block.hash:
+                if current_block.previous_hash != previous_block.get_hash:
                     return False
 
         return True
@@ -57,7 +57,7 @@ class Blockchain:
                     f"Data:\t\t{block.data}\n"
                     f"Timestamp:\t{block.timestamp}\n"
                     f"Nonce:\t\t{block.nonce}\n"
-                    f"Hash:\t\t{block.hash}\n"
+                    f"Hash:\t\t{block.get_hash}\n"
                     f"PrevHash:\t{block.previous_hash}\n"
                     "\n"
                 )
@@ -68,7 +68,7 @@ class Blockchain:
                 f"Data:\t\t{block.data}\n"
                 f"Timestamp:\t{block.timestamp}\n"
                 f"Nonce:\t\t{block.nonce}\n"
-                f"Hash:\t\t{block.hash}\n"
+                f"Hash:\t\t{block.get_hash}\n"
                 f"PrevHash:\t{block.previous_hash}\n"
                 f"{'-'*50}\n"
             )
